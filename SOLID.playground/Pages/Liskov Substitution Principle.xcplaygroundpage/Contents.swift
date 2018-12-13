@@ -7,10 +7,15 @@ import Foundation
 
 protocol BirdProtocol {
   func walk()
+}
+
+protocol FlyingProtocol {
   func fly()
 }
 
-class Eagle: BirdProtocol {
+protocol FlyingBirdProtocol: BirdProtocol, FlyingProtocol { }
+
+class Eagle: FlyingBirdProtocol {
 
   func walk() {
     print("Eagle is walking.")
@@ -26,27 +31,19 @@ class Penguin: BirdProtocol {
   func walk() {
     print("Penguin is walking.")
   }
-
-  func fly() {
-    fatalError("💥 Penguins can't fly! 💥")
-  }
 }
 
 class Zoo {
 
-  let birds: [BirdProtocol]
+  let birds: [FlyingBirdProtocol]
   
-  init(birds: [BirdProtocol]) {
+  init(birds: [FlyingBirdProtocol]) {
     self.birds = birds
   }
 
   func makeNoise() {
     for bird in birds {
-      if let penguin = bird as? Penguin {
-        penguin.walk()
-      } else {
-        bird.fly()
-      }
+      bird.fly()
     }
   }
 }

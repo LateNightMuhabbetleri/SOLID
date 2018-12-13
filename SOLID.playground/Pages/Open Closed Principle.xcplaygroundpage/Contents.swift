@@ -6,7 +6,21 @@
 import Foundation
 
 protocol PaymentManagerProtocol {
-  func makeVisaPayment(_ amount: Decimal)
-  func makeMastercardPayment(_ amount: Decimal)
-  func makeAppleWalletPayment(_ amount: Decimal)
+  func payAmount(_ amount: Decimal, method: PaymentMethodProtocol)
+}
+
+protocol PaymentMethodProtocol {
+  func payAmount(_ amount: Decimal)
+}
+
+class VisaPaymentMethod: PaymentMethodProtocol {
+  func payAmount(_ amount: Decimal) {
+    // ...
+  }
+}
+
+class MastercardPaymentMethod: PaymentMethodProtocol {
+  func payAmount(_ amount: Decimal) {
+    // ...
+  }
 }

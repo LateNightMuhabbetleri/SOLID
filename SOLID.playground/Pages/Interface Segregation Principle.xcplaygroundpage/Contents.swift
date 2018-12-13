@@ -1,7 +1,6 @@
 // -------------------------------------------------------------
 // Interface Segregation Principle
 // https://en.wikipedia.org/wiki/Interface_segregation_principle
-// https://upload.wikimedia.org/wikipedia/commons/9/96/Dependency_inversion.png
 // -------------------------------------------------------------
 
 import Foundation
@@ -16,16 +15,19 @@ enum SpeedUnit {
   case miles
 }
 
-protocol UserSettingsProtocol: class {
-  var temperatureUnit: TemperatureUnit { get set }
+protocol SpeedSettingsProtocol: class {
   var speedUnit: SpeedUnit { get set }
+}
+
+protocol TemperatureSettingsProtocol: class {
+  var temperatureUnit: TemperatureUnit { get set }
 }
 
 class TemperatureController {
   
-  private let settings: UserSettingsProtocol
+  private let settings: TemperatureSettingsProtocol
   
-  init(settings: UserSettingsProtocol) {
+  init(settings: TemperatureSettingsProtocol) {
     self.settings = settings
   }
   
