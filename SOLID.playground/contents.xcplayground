@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered' executeOnSourceChanges='false'>
+    <pages>
+        <page name='Table of Contents'/>
+        <page name='Single Responsibility Principle'/>
+        <page name='Open Closed Principle'/>
+        <page name='Liskov Substitution Principle'/>
+        <page name='Interface Segregation Principle'/>
+        <page name='Dependency Inversion Principle'/>
+    </pages>
+</playground>
